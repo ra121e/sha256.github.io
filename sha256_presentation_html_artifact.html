@@ -92,13 +92,13 @@ svg text{font-family:ui-monospace,Menlo,monospace}button:disabled{opacity:.35;cu
 <div class="sum"><span class="b">まぜた8つ</span>＋<span class="b">箱に入る前の8つ</span>＝<span class="b" style="background:var(--y);color:var(--yt)">次の8つ</span></div>
 <p class="mut c">箱の数だけくり返す。最後に残った8つ（8×32＝256ビット）が指紋。</p></div></section>
 
-<section class="s"><div class="in"><h2>おまけ：最初の8つの数のタネ</h2>
-<p>「細工していない」と言える数がほしい。だから、誰でも計算できる平方根を使う。</p>
+<section class="s"><div class="in"><h2>素数の平方根の小数部分の先頭32ビット</h2>
+<p>無限につづく小数を32ビットの2進数でどう表すのか？</p>
 <div class="big">√2 = 1.<span style="color:var(--a)">41421356</span>…</div>
 <p class="mut c">小数部分の先頭32ビット ＝ <code>0x6a09e667</code></p>
-<p class="mut c">64個の定数Kは、最初の64個の素数の<b>立方根</b>から同じように作る。</p></div></section>
+<p class="mut c">0.41421356 × 2 × 2...を繰り返す方法では最後の方で誤差がでてしまう。</p></div></section>
 
-<section class="s"><div class="in"><h2>平方根は接線で近づく：f(x) = x² − 2</h2>
+<section class="s"><div class="in"><h2>ニュートン法：f(x) = x² − 2</h2>
 <div class="stage">
 <div class="card"><p class="cap" id="cap" aria-live="polite"></p>
 <svg id="svg" viewBox="0 0 640 380" role="img" aria-label="曲線と接線による反復の図"></svg>
