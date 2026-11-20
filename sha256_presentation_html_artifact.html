@@ -169,7 +169,7 @@ function draw(){
   }
   svg.innerHTML=h;
   const n=s<2?0:Math.floor((s-2)/3),k=(s-2)%3;
-  cap.textContent=s===0?'曲線f(x) = x² − 2が x 軸と交わる点（√2）を探す。':s===1?'初期値 x₀ = 3 を選ぶ。':s===LAST?`x${sub[R]} は √2 に誤差 ${Math.abs(xs[R]-SQ).toExponential(1)} まで一致。`:[`x${sub[n]} での接線をひく（f の一次近似）。`,`接線が x 軸と交わる点を x${sub[n+1]} とする。`,`x${sub[n+1]} で f を評価し直す。`][k];
+  cap.textContent=s===0?'曲線 f(x) = x²−2 が x 軸と交わる点（√2）を探す。':s===1?'初期値 x₀ = 3 を選ぶ。':s===LAST?`x${sub[R]} は √2 に誤差 ${Math.abs(xs[R]-SQ).toExponential(1)} まで一致。`:[`x${sub[n]} での接線をひく（f の一次近似）。`,`接線が x 軸と交わる点を x${sub[n+1]} とする。`,`x${sub[n+1]} で f を評価し直す。`][k];
   let t='';
   for(let i=0;i<=R;i++){
     if(!(i===0?s>=1:s>=3+3*(i-1)))break;
