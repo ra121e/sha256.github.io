@@ -98,7 +98,7 @@ svg text{font-family:ui-monospace,Menlo,monospace}button:disabled{opacity:.35;cu
 <p class="mut c">0.41421356 × 2 × 2...を繰り返す方法では誤差がでてしまう。</p>
 <p class="mut c">√2 を2³²倍して整数部分を作り出す。つまり、<code>√2 × 2³² = √(2⁶⁵)</code>を計算する。</p></div></section>
 
-<section class="s"><div class="in"><h2>ニュートン法：f(x) = x² − 2</h2>
+<section class="s"><div class="in"><h2>ニュートン法：平方根を求める</h2>
 <div class="stage">
 <div class="card"><p class="cap" id="cap" aria-live="polite"></p>
 <svg id="svg" viewBox="0 0 640 380" role="img" aria-label="曲線と接線による反復の図"></svg>
@@ -169,7 +169,7 @@ function draw(){
   }
   svg.innerHTML=h;
   const n=s<2?0:Math.floor((s-2)/3),k=(s-2)%3;
-  cap.textContent=s===0?'曲線が x 軸と交わる点（√2）を探す。':s===1?'初期値 x₀ = 3 を選ぶ。':s===LAST?`x${sub[R]} は √2 に誤差 ${Math.abs(xs[R]-SQ).toExponential(1)} まで一致。`:[`x${sub[n]} での接線をひく（f の一次近似）。`,`接線が x 軸と交わる点を x${sub[n+1]} とする。`,`x${sub[n+1]} で f を評価し直す。`][k];
+  cap.textContent=s===0?'曲線f(x) = x² − 2が x 軸と交わる点（√2）を探す。':s===1?'初期値 x₀ = 3 を選ぶ。':s===LAST?`x${sub[R]} は √2 に誤差 ${Math.abs(xs[R]-SQ).toExponential(1)} まで一致。`:[`x${sub[n]} での接線をひく（f の一次近似）。`,`接線が x 軸と交わる点を x${sub[n+1]} とする。`,`x${sub[n+1]} で f を評価し直す。`][k];
   let t='';
   for(let i=0;i<=R;i++){
     if(!(i===0?s>=1:s>=3+3*(i-1)))break;
