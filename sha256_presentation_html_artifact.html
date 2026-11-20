@@ -107,9 +107,9 @@ svg text{font-family:ui-monospace,Menlo,monospace}button:disabled{opacity:.35;cu
 <p class="mut" style="font-size:.8em">誤差がおおよそ二乗で縮むので、正しい桁数が反復ごとに倍々になる（二次収束）。</p></div></div>
 <div class="tech">接線とx軸の交点： x' = x − (x²−2)/(2x) = ( x + 2/x ) / 2　←「予想と2÷予想の平均」と同じ</div></div></section>
 
-<section class="s"><div class="in"><h2>ビットは「整数」で取り出す</h2>
-<p class="mut">小数のまま2進にすると桁が足りず誤差が出る（10進で約10桁は必要）。2³²倍して整数にする。</p>
-<p class="c"><code>√2 × 2³² = √(2⁶⁵)</code></p>
+<section class="s"><div class="in"><h2>2⁶⁵の平方根は</h2>
+<p class="mut">2⁶⁵=36,893,488,147,419,103,232 の平方根は2³²と2³³の間なので、</p>
+<p class="c"><code>2³³=8589934592</code>を初期値としてスタート。</p>
 <p class="mut">整数のニュートン法 x ← (x + N÷x) ÷ 2 で、値が変わらなくなるまで。</p>
 <div class="chips" style="justify-content:center"><span class="chip">8589934592</span><span class="chip">6442450944</span><span class="chip">6084537002</span><span class="chip">6074010122</span><span class="chip">6074000999</span><span class="chip">6074000999</span></div>
 <div class="big" style="font-size:clamp(1.2rem,4.5vw,2rem)">6074000999 − 2³² = 1779033703 = <span style="color:var(--a)">0x6A09E667</span></div></div></section>
