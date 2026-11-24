@@ -66,21 +66,21 @@ svg text{font-family:ui-monospace,Menlo,monospace}button:disabled{opacity:.35;cu
 <div class="card"><span class="em">🦋</span><h3>ちょっとで別物</h3><p class="mut">1文字違えば総入れ替え</p></div>
 <div class="card"><span class="em">📏</span><h3>いつも同じ長さ</h3><p class="mut">1文字でも1GBでも256ビット</p></div></div></div></section>
 
-<section class="s"><div class="in"><h2>ハッシュポテト</h2><p class="mut">刻んで、混ぜて、混ぜて、混ぜる。</p>
+<section class="s"><div class="in"><h2>ハッシュがやっていること</h2><p class="mut">刻んで、混ぜて、混ぜて、混ぜる。ハッシュポテト。</p>
 <div class="flow"><div class="box"><span class="em">📄</span>データ</div><div class="ar">→</div><div class="box"><span class="em">✂️</span>整える・刻む</div><div class="ar">→</div><div class="box"><span class="em">🌀</span>64回混ぜる</div><div class="ar">→</div><div class="box"><span class="em">🔑</span>8つの数</div></div></div></section>
 
 <section class="s"><div class="in"><h2>① 最初の8つの数を用意する</h2><p class="mut">混ぜる「タネ」。32ビットの数が8個。</p>
 <div class="chips" style="margin-top:.8em"><span class="chip">6a09e667</span><span class="chip">bb67ae85</span><span class="chip">3c6ef372</span><span class="chip">a54ff53a</span><span class="chip">510e527f</span><span class="chip">9b05688c</span><span class="chip">1f83d9ab</span><span class="chip">5be0cd19</span></div>
 <p class="mut" style="margin-top:.8em">最初の8つの素数（2, 3, 5, 7, 11, 13, 17, 19）の平方根から作った。あとで種明かし。</p></div></section>
 
-<section class="s"><div class="in"><h2>② 入力データを512ビットの箱に詰める</h2>
-<div class="bar"><span class="d">データ</span></div>
+<section class="s"><div class="in"><h2>② 入力データを512ビットに区切る</h2>
+<div class="bar"><span class="d">データ（512ビット分）</span></div>
 <div class="bar"><span class="d">データ（つづき）</span><span class="o">1</span><span class="z">0000…0000</span><span class="l">長さ 64ビット</span></div>
-<p class="mut">データの後ろに「1」と0を足し、最後の64ビットに元の長さを書く。長いデータは箱が複数になる。</p></div></section>
+<p class="mut">あまったデータの後ろに「1」と0を足し、最後の64ビットに元の長さを書く。長いデータはブロックが複数になる。</p></div></section>
 
-<section class="s"><div class="in"><h2>③ 箱を切り分けて、64個の塊に</h2>
+<section class="s"><div class="in"><h2>③ ブロックを切り分けて、64個の塊に</h2>
 <div id="ws" class="chips" style="gap:5px;margin:.8em 0"></div>
-<p><span style="color:var(--a)">■</span> 箱を切り分けた16個　<span style="color:var(--g)">□</span> 計算して追加した48個</p>
+<p><span style="color:var(--a)">■</span>最初に切り分けた16個　<span style="color:var(--g)">□</span> 計算して追加した48個</p>
 <div class="tech">W[t] = σ1(W[t-2]) + W[t-7] + σ0(W[t-15]) + W[t-16]<br>σ0(x) = ROTR7(x) ⊕ ROTR18(x) ⊕ SHR3(x)</div></div></section>
 
 <section class="s"><div class="in"><h2>④ 8つの数を64回まぜる</h2>
@@ -89,9 +89,9 @@ svg text{font-family:ui-monospace,Menlo,monospace}button:disabled{opacity:.35;cu
 <div class="c"><button id="go">1回まぜる</button><button id="ten">10回まぜる</button><button id="rs">もどす</button></div>
 <div class="tech">T1 = h + Σ1(e) + Ch(e,f,g) + K[t] + W[t]　T2 = Σ0(a) + Maj(a,b,c)<br>a' = T1 + T2　e' = d + T1　（他は b'=a, c'=b, …）</div></div></section>
 
-<section class="s"><div class="in"><h2>⑤ 足して、次の箱へ</h2>
+<section class="s"><div class="in"><h2>⑤ 足して、次のブロックへ</h2>
 <div class="sum"><span class="b">まぜた8つ</span>＋<span class="b">箱に入る前の8つ</span>＝<span class="b" style="background:var(--y);color:var(--yt)">次の8つ</span></div>
-<p class="mut c">箱の数だけくり返す。最後に残った8つ（8×32＝256ビット）が指紋。</p></div></section>
+<p class="mut c">ブロックの数だけくり返す。最後に残った8つ（8×32＝256ビット）がハッシュ値。</p></div></section>
 
 <section class="s"><div class="in"><h2>素数の平方根の小数部分の先頭32ビット</h2>
 <p>無限につづく小数を32ビットの2進数でどう表すのか？</p>
